@@ -127,3 +127,5 @@
     align-items: flex-start;
   }
 }
+.exp-card { transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+.exp-card:hover { box-shadow: 0 0 30px rgba(124,106,255,0.2), 0 0 0 1px rgba(124,106,255,0.4); border-color: rgba(124,106,255,0.5); }

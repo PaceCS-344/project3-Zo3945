@@ -1,3 +1,6 @@
+#!/bin/bash
+
+cat > src/components/About.js << 'JSEOF'
 import React from 'react';
 import { useScrollAnimation, useCountUp } from './useScrollAnimation';
 import { useGitHubProfile } from './useGitHub';
@@ -76,3 +79,60 @@ function About() {
   );
 }
 export default About;
+JSEOF
+
+cat >> src/components/About.css << 'CSSEOF'
+
+.about__github-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: 100px;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  margin: 1.25rem 0;
+  width: fit-content;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.about__github-pill:hover {
+  box-shadow: 0 0 16px rgba(124,106,255,0.2);
+  border-color: rgba(124,106,255,0.5);
+}
+
+.about__github-pill-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-accent);
+}
+
+.about__github-pill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.about__github-pill-name {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.about__github-pill-stats {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.about__github-pill-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
+CSSEOF
+
+echo "✅ GitHub profile pill added to About Me!"

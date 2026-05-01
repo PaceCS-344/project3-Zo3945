@@ -10,3 +10,107 @@
 .stat-card__num{font-family:var(--font-mono);font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
 .stat-card__label{font-size:0.8rem;color:var(--text-muted);font-family:var(--font-mono)}
 @media(max-width:800px){.about__grid{grid-template-columns:1fr;gap:3rem}}
+
+.about__github-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  transition: border-color var(--transition);
+}
+
+.about__github-profile:hover {
+  border-color: rgba(124,106,255,0.5);
+}
+
+.about__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--border-accent);
+}
+
+.about__github-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.about__github-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.about__github-stats {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.about__github-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.about__github-link:hover { opacity: 0.7; }
+
+.about__github-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: 100px;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  margin: 1.25rem 0;
+  width: fit-content;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.about__github-pill:hover {
+  box-shadow: 0 0 16px rgba(124,106,255,0.2);
+  border-color: rgba(124,106,255,0.5);
+}
+
+.about__github-pill-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-accent);
+}
+
+.about__github-pill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.about__github-pill-name {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.about__github-pill-stats {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.about__github-pill-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
