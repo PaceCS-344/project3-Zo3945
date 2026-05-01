@@ -40,9 +40,9 @@ function Navbar() {
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
         <a className="navbar__logo" href="#hero" onClick={() => handleClick('#hero')}>
-          <span className="navbar__logo-bracket">{'<'}</span>
-          ZohebKhan
-          <span className="navbar__logo-bracket">{' />'}</span>
+          
+          Zoheb Khan
+          
         </a>
 
         <nav className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>

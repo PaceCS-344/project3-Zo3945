@@ -70,22 +70,6 @@ function Hero() {
             <Button href={GITHUB_URL} variant="ghost" external>GitHub Profile</Button>
           </div>
 
-          <div className="hero__stats">
-            <div className="hero__stat">
-              <span className="hero__stat-num">2</span>
-              <span className="hero__stat-label">Internships</span>
-            </div>
-            <div className="hero__stat-divider" />
-            <div className="hero__stat">
-              <span className="hero__stat-num">6+</span>
-              <span className="hero__stat-label">Projects</span>
-            </div>
-            <div className="hero__stat-divider" />
-            <div className="hero__stat">
-              <span className="hero__stat-num">🏆</span>
-              <span className="hero__stat-label">WiCyS Award</span>
-            </div>
-          </div>
         </div>
 
         <div className="hero__right">

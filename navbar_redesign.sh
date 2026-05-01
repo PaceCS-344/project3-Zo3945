@@ -1,3 +1,85 @@
+#!/bin/bash
+
+cat > src/components/Navbar.js << 'EOF'
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
+
+const NAV_LINKS = [
+  { label: 'about',      href: '#about' },
+  { label: 'experience', href: '#experience' },
+  { label: 'skills',     href: '#skills' },
+  { label: 'projects',   href: '#projects' },
+  { label: 'contact',    href: '#contact' },
+];
+
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState('');
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      const sections = NAV_LINKS.map(l => l.href.replace('#', ''));
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && window.scrollY >= el.offsetTop - 120) {
+          setActive('#' + sections[i]);
+          break;
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleClick = (href) => {
+    setMenuOpen(false);
+    setActive(href);
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+      <div className="container navbar__inner">
+        <a className="navbar__logo" href="#hero" onClick={() => handleClick('#hero')}>
+          <span className="navbar__logo-bracket">{'<'}</span>
+          ZohebKhan
+          <span className="navbar__logo-bracket">{' />'}</span>
+        </a>
+
+        <nav className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
+          {NAV_LINKS.map(link => (
+            <button
+              key={link.href}
+              className={`navbar__link ${active === link.href ? 'navbar__link--active' : ''}`}
+              onClick={() => handleClick(link.href)}>
+              {link.label}
+            </button>
+          ))}
+          <a
+            href="/resume.pdf"
+            download="Zoheb_Khan_Resume.pdf"
+            className="navbar__resume">
+            resume ↓
+          </a>
+        </nav>
+
+        <button
+          className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu">
+          <span /><span /><span />
+        </button>
+      </div>
+    </header>
+  );
+}
+
+export default Navbar;
+EOF
+
+cat > src/components/Navbar.css << 'EOF'
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -22,7 +104,7 @@
 }
 
 /* Logo */
-.navbar__logo_OLD { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, rgba(124,106,255,0.15), rgba(87,240,176,0.08)); border: 1px solid rgba(124,106,255,0.4); padding: 0.4rem 1.1rem; border-radius: 100px; box-shadow: 0 0 16px rgba(124,106,255,0.2), inset 0 0 12px rgba(87,240,176,0.05); backdrop-filter: blur(8px); transition: all 0.3s ease;
+.navbar__logo {
   font-family: var(--font-mono);
   font-size: 1rem;
   font-weight: 700;
@@ -141,51 +223,6 @@
     margin-left: 0;
   }
 }
+EOF
 
-.navbar__logo_OLD2 {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: linear-gradient(135deg, rgba(124,106,255,0.12), rgba(87,240,176,0.06));
-  border: 1px solid rgba(124,106,255,0.35);
-  padding: 0.45rem 1.1rem;
-  border-radius: 100px;
-  box-shadow: 0 0 20px rgba(124,106,255,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.navbar__logo::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(124,106,255,0.08), rgba(87,240,176,0.04));
-  border-radius: 100px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.navbar__logo:hover::before {
-  opacity: 1;
-}
-
-.navbar__logo:hover {
-  border-color: rgba(124,106,255,0.6);
-  box-shadow: 0 0 30px rgba(124,106,255,0.3), 0 0 60px rgba(87,240,176,0.1);
-  color: var(--text-primary);
-}
-
-.navbar__logo-bracket {
-  color: var(--green);
-  text-shadow: 0 0 10px rgba(87,240,176,0.6);
-  font-size: 1rem;
-}
-.navbar__logo { color: var(--green) !important; text-shadow: 0 0 12px rgba(87,240,176,0.5); }
-.navbar__logo { color: var(--green) !important; text-shadow: 0 0 12px rgba(87,240,176,0.5); background: linear-gradient(135deg, rgba(124,106,255,0.12), rgba(87,240,176,0.06)) !important; border: 1px solid rgba(124,106,255,0.35) !important; padding: 0.45rem 1.1rem !important; border-radius: 100px !important; box-shadow: 0 0 20px rgba(124,106,255,0.15) !important; }
+echo "✅ Navbar redesigned — glowing pills, active state, green resume button!"
