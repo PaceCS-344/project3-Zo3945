@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Zoheb-s-website/static/css/main.1370df46.css",
-    "main.js": "/Zoheb-s-website/static/js/main.8a8971e7.js",
+    "main.css": "/Zoheb-s-website/static/css/main.5223f77e.css",
+    "main.js": "/Zoheb-s-website/static/js/main.c19e4515.js",
     "index.html": "/Zoheb-s-website/index.html",
-    "main.1370df46.css.map": "/Zoheb-s-website/static/css/main.1370df46.css.map",
-    "main.8a8971e7.js.map": "/Zoheb-s-website/static/js/main.8a8971e7.js.map"
+    "main.5223f77e.css.map": "/Zoheb-s-website/static/css/main.5223f77e.css.map",
+    "main.c19e4515.js.map": "/Zoheb-s-website/static/js/main.c19e4515.js.map"
   },
   "entrypoints": [
-    "static/css/main.1370df46.css",
-    "static/js/main.8a8971e7.js"
+    "static/css/main.5223f77e.css",
+    "static/js/main.c19e4515.js"
   ]
 }
