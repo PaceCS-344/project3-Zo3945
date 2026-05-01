@@ -1,0 +1,6 @@
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:1.5rem 0}
+.footer__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.footer__copy{font-size:0.82rem;color:var(--text-muted)}
+.footer__mono{font-family:var(--font-mono)}
+.footer__top{font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);cursor:pointer;background:none;border:none;transition:color var(--transition);letter-spacing:0.05em}
+.footer__top:hover{color:var(--accent)}

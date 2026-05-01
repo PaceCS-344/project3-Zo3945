@@ -1,0 +1,129 @@
+.experience {
+  background: var(--bg-primary);
+}
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.exp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.exp-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(124, 106, 255, 0.12);
+}
+
+.exp-card--current {
+  border-color: rgba(124, 106, 255, 0.25);
+}
+
+.exp-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.exp-card__company {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.exp-card__role {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.exp-card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.exp-card__badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+
+.exp-card__period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.exp-card__location {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.exp-card__bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.exp-card__bullets li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.exp-card__bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.7rem;
+  top: 0.3rem;
+}
+
+.exp-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.exp-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  background: var(--bg-hover);
+  border-radius: 4px;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .exp-card__header {
+    flex-direction: column;
+  }
+  .exp-card__meta {
+    align-items: flex-start;
+  }
+}

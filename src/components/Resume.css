@@ -1,0 +1,74 @@
+.resume {
+  padding: 5rem 0;
+}
+
+.resume__content {
+  display: grid;
+  gap: 2rem;
+}
+
+.resume__summary {
+  max-width: 760px;
+}
+
+.resume__summary h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.resume__summary p {
+  line-height: 1.8;
+}
+
+.resume__details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.resume__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.resume__card h4 {
+  margin-bottom: 0.75rem;
+}
+
+.resume__item {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.resume__item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.resume__sections {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.resume__section h4 {
+  margin-bottom: 0.75rem;
+}
+
+.resume__section ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.resume__section li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .resume__details {
+    grid-template-columns: 1fr;
+  }
+}
