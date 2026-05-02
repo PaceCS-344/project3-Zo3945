@@ -264,3 +264,8 @@ mark.search-highlight {
   margin-right: 1rem;
   z-index: 9999;
 }
+.navbar__resume {
+  position: relative;
+  z-index: 100;
+  pointer-events: all !important;
+}
