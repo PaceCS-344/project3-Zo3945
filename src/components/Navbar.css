@@ -278,3 +278,14 @@ mark.search-highlight {
   color: #ffffff !important;
   text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 25px rgba(255,255,255,0.5);
 }
+.navbar__link {
+  color: rgba(255,255,255,0.7);
+}
+.navbar__link:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255,255,255,0.8) !important;
+}
+.navbar__link--active {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(255,255,255,0.9) !important;
+}
