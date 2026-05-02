@@ -269,22 +269,4 @@ mark.search-highlight {
   z-index: 100;
   pointer-events: all !important;
 }
-<<<<<<< HEAD
-.navbar__link:hover {
-  color: #ffffff !important;
-}
 
-.navbar__link--active {
-  color: #ffffff !important;
-}
-.navbar__link {
-  color: rgba(255,255,255,0.7);
-}
-.navbar__link:hover {
-  color: #ffffff !important;
-}
-.navbar__link--active {
-  color: #ffffff !important;
-}
-=======
->>>>>>> parent of fd356fe... White glow nav links
