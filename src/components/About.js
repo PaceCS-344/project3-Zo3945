@@ -42,9 +42,7 @@ function About({ searchQuery }) {
               ))}
             </div>
             <div style={{ marginTop: '2rem' }}>
-              <a href="/Zoheb-s-website/resume.pdf" download="Zoheb_Khan_Resume.pdf" className="btn btn--outline">
-                Download Resume
-              </a>
+              <a href="/Zoheb-s-website/resume.pdf" download="Zoheb_Khan_Resume.pdf" className="btn btn--outline">Download Resume</a>
             </div>
           </div>
           <div className="about__stats">

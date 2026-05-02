@@ -16,16 +16,13 @@ const CONTACT_LINKS = [
 ];
 
 function ContactCard({ label, value, href, icon, external, index, visible, searchQuery }) {
+  const isLinkedIn = label === 'LinkedIn';
   return (
-    <a className={`contact-card ${label === "LinkedIn" ? "contact-card--linkedin" : ""}`} href={href}
+    <a className={`contact-card ${isLinkedIn ? 'contact-card--linkedin' : ''}`} href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateX(0)' : 'translateX(-30px)',
-        transition: `opacity 0.5s ease ${index * 0.12}s, transform 0.5s ease ${index * 0.12}s`
-      }}>
-      <span className={`contact-card__icon ${label === "LinkedIn" ? "contact-card__icon--linkedin" : ""}`} aria-hidden="true">{icon}</span>
+      style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateX(0)' : 'translateX(-30px)', transition: `opacity 0.5s ease ${index * 0.12}s, transform 0.5s ease ${index * 0.12}s` }}>
+      <span className={`contact-card__icon ${isLinkedIn ? 'contact-card__icon--linkedin' : ''}`} aria-hidden="true">{icon}</span>
       <div className="contact-card__text">
         <span className="contact-card__label"><SearchHighlight text={label} query={searchQuery} /></span>
         <span className="contact-card__value"><SearchHighlight text={value} query={searchQuery} /></span>
@@ -50,11 +47,7 @@ function Contact({ searchQuery }) {
             ))}
           </div>
           <div className="contact__cta"
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? 'translateY(0)' : 'translateY(30px)',
-              transition: 'opacity 0.6s ease 0.35s, transform 0.6s ease 0.35s'
-            }}>
+            style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)', transition: 'opacity 0.6s ease 0.35s, transform 0.6s ease 0.35s' }}>
             <div className="contact__cta-inner">
               <p className="contact__cta-label">// open to opportunities</p>
               <h3 className="contact__cta-heading">Looking for a developer?</h3>

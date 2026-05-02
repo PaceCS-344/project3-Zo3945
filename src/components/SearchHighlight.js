@@ -1,13 +1,16 @@
 import React from 'react';
 
 function SearchHighlight({ text, query }) {
-  if (!query || !query.trim()) return <span>{text}</span>;
-  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  if (!query || !query.trim() || !text) return <span>{text}</span>;
+  
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${escaped})`, 'gi');
   const parts = text.split(regex);
+  
   return (
     <span>
       {parts.map((part, i) =>
-        regex.test(part)
+        part.toLowerCase() === query.toLowerCase()
           ? <mark key={i} className="search-highlight">{part}</mark>
           : <span key={i}>{part}</span>
       )}

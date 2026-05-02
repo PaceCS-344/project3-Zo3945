@@ -235,3 +235,32 @@ mark.search-highlight {
   border-radius: 2px;
   padding: 0 2px;
 }
+
+.navbar__search-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navbar__search-clear {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 50%;
+  transition: color var(--transition), background var(--transition);
+}
+
+.navbar__search-clear:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+.navbar__search-area {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 1rem;
+  z-index: 9999;
+}

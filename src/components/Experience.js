@@ -38,11 +38,7 @@ const EXPERIENCES = [
 function ExperienceCard({ company, role, period, location, bullets, tags, badge, index, visible, searchQuery }) {
   return (
     <div className={`exp-card ${badge ? 'exp-card--current' : ''}`}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(40px)',
-        transition: `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`
-      }}>
+      style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(40px)', transition: `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s` }}>
       <div className="exp-card__header">
         <div>
           <h3 className="exp-card__company"><SearchHighlight text={company} query={searchQuery} /></h3>
@@ -73,9 +69,7 @@ function Experience({ searchQuery }) {
         <h2 className="section-title">Where I've Worked</h2>
         <p className="section-subtitle">Real teams, real code, real impact.</p>
         <div className="exp-list" ref={ref}>
-          {EXPERIENCES.map((e, i) => (
-            <ExperienceCard key={e.company} {...e} index={i} visible={visible} searchQuery={searchQuery} />
-          ))}
+          {EXPERIENCES.map((e, i) => <ExperienceCard key={e.company} {...e} index={i} visible={visible} searchQuery={searchQuery} />)}
         </div>
       </div>
     </section>

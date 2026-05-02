@@ -294,3 +294,11 @@ button{cursor:pointer;border:none;background:none;font-family:var(--font-sans)}
 .stat-card__num {
   text-shadow: 0 0 20px rgba(139,124,248,0.5);
 }
+
+mark.search-highlight {
+  background: rgba(124, 106, 255, 0.4);
+  color: var(--text-primary);
+  border-radius: 3px;
+  padding: 0 2px;
+  font-style: normal;
+}

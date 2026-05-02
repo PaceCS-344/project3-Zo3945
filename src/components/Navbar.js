@@ -40,30 +40,30 @@ function Navbar({ onSearch }) {
 
   useEffect(() => {
     if (searchOpen && searchRef.current) {
-      setTimeout(() => searchRef.current?.focus(), 100);
+      setTimeout(() => searchRef.current?.focus(), 50);
     }
   }, [searchOpen]);
 
-  const handleLogoClick = (e) => {
-    e.stopPropagation();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleLogoClick = () => {
     const newClicks = clicks + 1;
     setClicks(newClicks);
     clearTimeout(timerRef.current);
-    if (newClicks >= 3) { setEggTrigger(prev => prev + 1); setClicks(0); }
+    if (newClicks >= 3) {
+      setEggTrigger(prev => prev + 1);
+      setClicks(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     timerRef.current = setTimeout(() => setClicks(0), 2000);
   };
 
-  const handleNavClick = (href, e) => {
-    e.stopPropagation();
-    e.preventDefault();
+  const handleNavClick = (href) => {
     setMenuOpen(false);
     setActive(href);
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleSearchChange = (e) => {
-    e.stopPropagation();
     const val = e.target.value;
     setQuery(val);
     if (onSearch) onSearch(val);
@@ -86,12 +86,15 @@ function Navbar({ onSearch }) {
       <EasterEgg trigger={eggTrigger} />
       <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
         <div className="container navbar__inner">
-          <button className="navbar__logo" onClick={handleLogoClick}>Zoheb Khan</button>
+          <button className="navbar__logo" onClick={handleLogoClick}>
+            Zoheb Khan
+          </button>
+
           <nav className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
             {NAV_LINKS.map(link => (
               <button key={link.href}
                 className={`navbar__link ${active === link.href ? 'navbar__link--active' : ''}`}
-                onClick={(e) => handleNavClick(link.href, e)}>
+                onClick={() => handleNavClick(link.href)}>
                 {link.label}
               </button>
             ))}
@@ -99,21 +102,38 @@ function Navbar({ onSearch }) {
               Resume ↓
             </a>
           </nav>
-          <div className="navbar__search-wrap" onClick={e => e.stopPropagation()}>
+
+          {/* Search - completely separate from logo */}
+          <div className="navbar__search-area">
             {searchOpen ? (
-              <input ref={searchRef} type="text" className="navbar__search-input"
-                placeholder="Type + Enter..." value={query}
-                onChange={handleSearchChange}
-                onKeyDown={handleKeyDown}
-                onBlur={() => { if (!query) setSearchOpen(false); }}
-                onClick={e => e.stopPropagation()} />
+              <div className="navbar__search-container">
+                <input
+                  ref={searchRef}
+                  type="text"
+                  className="navbar__search-input"
+                  placeholder="Search... (Enter to jump)"
+                  value={query}
+                  onChange={handleSearchChange}
+                  onKeyDown={handleKeyDown}
+                />
+                <button className="navbar__search-clear" onClick={() => {
+                  setQuery('');
+                  if (onSearch) onSearch('');
+                  setSearchOpen(false);
+                }}>✕</button>
+              </div>
             ) : (
-              <button className="navbar__search-btn"
-                onClick={(e) => { e.stopPropagation(); setSearchOpen(true); }}>🔍</button>
+              <button
+                className="navbar__search-btn"
+                onClick={() => setSearchOpen(true)}
+                title="Search site">
+                🔍
+              </button>
             )}
           </div>
+
           <button className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
-            onClick={(e) => { e.stopPropagation(); setMenuOpen(!menuOpen); }}>
+            onClick={() => setMenuOpen(!menuOpen)}>
             <span /><span /><span />
           </button>
         </div>
