@@ -295,3 +295,10 @@ mark.search-highlight {
 .navbar__search-btn:hover {
   color: var(--text-primary);
 }
+.navbar__hamburger {
+  position: relative;
+  z-index: 200;
+}
+.navbar__right {
+  z-index: 150;
+}
