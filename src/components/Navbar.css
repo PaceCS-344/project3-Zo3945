@@ -302,3 +302,6 @@ mark.search-highlight {
 .navbar__right {
   z-index: 150;
 }
+.navbar__logo {
+  margin-right: 2rem;
+}
