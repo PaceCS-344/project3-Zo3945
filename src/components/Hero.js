@@ -5,7 +5,7 @@ import './Hero.css';
 
 const NAME = 'Zoheb Khan';
 const ROLES = ['Software Engineer', 'Android Developer', 'CS Rising Senior', 'Problem Solver'];
-const TAGLINE = "CS student at Pace University who loves building things and solving real problems.";
+const TAGLINE = "Pace University CS student that turns ideas into real products that ship, scale, and make an impact.";
 const GITHUB_URL = 'https://github.com/Zo3945';
 
 function useTypewriter(words, speed = 80, pause = 1800) {
