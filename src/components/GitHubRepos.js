@@ -31,7 +31,7 @@ function RepoCard({ repo, index, visible, searchQuery }) {
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="repo-card"
-      style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)', transition: `opacity 0.5s ease ${index * 0.07}s, transform 0.5s ease ${index * 0.07}s` }}>
+      style={{ transform: visible ? 'translateY(0)' : 'translateY(30px)', transition: `opacity 0.5s ease ${index * 0.07}s, transform 0.5s ease ${index * 0.07}s` }}>
       <div className="repo-card__header">
         <h3 className="repo-card__name"><SearchHighlight text={repo.name} query={searchQuery} /></h3>
         {repo.language && (
